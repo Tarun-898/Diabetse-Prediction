@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build / package
+*.egg-info/
+build/
+dist/
+
+# Project generated artifacts
+artifact/
+mlartifacts/
+mlruns/
+logs/
+
+# DVC cache
+.dvc/cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.dbs
