@@ -1,0 +1,5 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = s3://diabetse-prediction
+    endpointurl = https://s3.us-east-005.backblazeb2.com
