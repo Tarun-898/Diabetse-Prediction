@@ -98,18 +98,18 @@ class DataTransformation:
              raise CustomException (e,sys)
 
 
-# if __name__ == "__main__": 
-#     try:  
-#         obj=DataInjection()
-#         train_data,test_data=obj.initiate_injection()
+if __name__ == "__main__": 
+    try:  
+        # obj=DataInjection()
+        # train_data,test_data=obj.initiate_injection()
 
-#         train_file_path = TRAIN_FILE_PATH 
-#         test_file_path = TEST_FILE_PATH 
-#         obj = DataTransformation() 
-#         train_arr, test_arr, processor_path = ( 
-#             obj.initiate_data_transformation( train_file_path, test_file_path ) )
-#         print("Train transformed file:", train_arr) 
-#         print("Test transformed file:", test_arr) 
-#         print("Processor file:", processor_path) 
-#     except Exception as e: print(e)
+        train_file_path = TRAIN_FILE_PATH 
+        test_file_path = TEST_FILE_PATH 
+        obj = DataTransformation() 
+        train_arr, test_arr, processor_path = ( 
+            obj.initiate_data_transformation( train_file_path, test_file_path ) )
+        print("Train transformed file:", train_arr) 
+        print("Test transformed file:", test_arr) 
+        print("Processor file:", processor_path) 
+    except Exception as e: print(e)
 

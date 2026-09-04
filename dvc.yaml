@@ -1,0 +1,24 @@
+stages:
+  data_injection:
+    cmd: python diabetse/components/data_injection.py
+    deps:
+      - diabetse/components/data_injection.py
+      - data_dir/diabetes_risk.csv
+    outs:
+      - artifact/data_ingestion
+
+  data_transformation:
+    cmd: python diabetse/components/data_transformation.py
+    deps:
+      - diabetse/components/data_transformation.py
+      - artifact/data_ingestion
+    outs:
+      - artifact/data_transformation
+
+  model_training:
+    cmd: python diabetse/components/model_training.py
+    deps:
+      - diabetse/components/model_training.py
+      - artifact/data_transformation
+    outs:
+      - artifact/model_trainer_dir/model.pkl

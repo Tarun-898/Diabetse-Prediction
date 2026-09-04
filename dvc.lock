@@ -1,0 +1,54 @@
+schema: '2.0'
+stages:
+  data_injection:
+    cmd: python diabetse/components/data_injection.py
+    deps:
+    - path: data_dir/diabetes_risk.csv
+      hash: md5
+      md5: 6acb7a616248eca05525e9a0e37c8baf
+      size: 1537335
+    - path: diabetse/components/data_injection.py
+      hash: md5
+      md5: d30352f567c63bc511fcbd95bdcb9b29
+      size: 1823
+    outs:
+    - path: artifact/data_ingestion
+      hash: md5
+      md5: ca571ebd862cd768081d6f5ac5c7172c.dir
+      size: 3104965
+      nfiles: 3
+  data_transformation:
+    cmd: python diabetse/components/data_transformation.py
+    deps:
+    - path: artifact/data_ingestion
+      hash: md5
+      md5: ca571ebd862cd768081d6f5ac5c7172c.dir
+      size: 3104965
+      nfiles: 3
+    - path: diabetse/components/data_transformation.py
+      hash: md5
+      md5: 9357abe7a43bfd41b30697ed1b473d5c
+      size: 5238
+    outs:
+    - path: artifact/data_transformation
+      hash: md5
+      md5: 01ce7d5129d4a1c809a9b0cad8756ad8.dir
+      size: 5100409
+      nfiles: 3
+  model_training:
+    cmd: python diabetse/components/model_training.py
+    deps:
+    - path: artifact/data_transformation
+      hash: md5
+      md5: 01ce7d5129d4a1c809a9b0cad8756ad8.dir
+      size: 5100409
+      nfiles: 3
+    - path: diabetse/components/model_training.py
+      hash: md5
+      md5: 65c1b9dbb5ace4d67ee43f966fa258c7
+      size: 10799
+    outs:
+    - path: artifact/model_trainer_dir/model.pkl
+      hash: md5
+      md5: e8bc7dc61c578e19300fc7bd0322de92
+      size: 682327

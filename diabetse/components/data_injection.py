@@ -45,6 +45,6 @@ class DataInjection:
         except Exception as e:
             raise CustomException(e,sys)
 
-# if __name__=="__main__":
-#     obj=DataInjection()
-#     train_data,test_data=obj.initiate_injection()
+if __name__=="__main__":
+    obj=DataInjection()
+    train_data,test_data=obj.initiate_injection()
