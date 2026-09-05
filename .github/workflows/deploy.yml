@@ -33,8 +33,10 @@ jobs:
           username: ubuntu
           key: ${{secrets.EC2_SSH_KEY}}
           script: |
+            set -e
             sudo docker stop diabetes-prediction || true
             sudo docker rm diabetes-prediction || true
+            sudo docker image prune -af
             sudo docker pull ${{secrets.DOCKERHUB_USERNAME}}/diabetes-prediction:latest
             sudo docker run -d -p 5000:5000 --name diabetes-prediction ${{secrets.DOCKERHUB_USERNAME}}/diabetes-prediction:latest
-            sudo docker image prune -af
+            
